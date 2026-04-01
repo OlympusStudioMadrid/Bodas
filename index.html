@@ -12,7 +12,7 @@
   --white:#F5F0E8;--dim:#9A9590;--muted:#555550;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; scroll-padding-top: 110px;}
 body{background:var(--black);color:var(--white);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold-d)}
 
@@ -25,7 +25,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:9px 20px;text-decoration:none;transition:background .2s}
+.nav-cta{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:9px 20px;text-decoration:none;transition:background .2s; margin-left: 2.5rem;}
 .nav-cta:hover{background:var(--gold-l)}
 
 /* HERO */
@@ -157,15 +157,14 @@ footer{padding:2rem 4vw;border-top:0.5px solid var(--border);display:flex;flex-w
 <body>
 
 <nav>
-  <div class="nav-brand">
+  <a href="#" class="nav-brand" style="text-decoration: none;">
    <img src="logo_olympus_banner.png" style="width: 7%; height: auto;">
   <div class="brand-name">Olympus Studio<span>Madrid</span></div>
-  </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#packs">Paquetes</a></li>
     <li><a href="#modalidades">Modalidades</a></li>
     <li><a href="#reserva">Reservas</a></li>
-    <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Consultar disponibilidad</a>
 </nav>
@@ -238,7 +237,7 @@ footer{padding:2rem 4vw;border-top:0.5px solid var(--border);display:flex;flex-w
 </section>
 
 <!-- MODALIDADES -->
-<section id="modalidades" style="padding-top:0">
+<section id="modalidades">
   <p class="s-label">¿Qué modalidad elegir?</p>
   <h2 class="s-title">Dos formas de <em>trabajar</em></h2>
   <div class="s-rule"></div>
