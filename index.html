@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olympus Studio Madrid — Fotografía de Bodas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A96E;--gold-l:#E8D5A3;--gold-d:#8B6F3E;
+  --black:#080808;--card:#111111;--border:#1E1E1E;
+  --white:#F5F0E8;--dim:#9A9590;--muted:#555550;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold-d)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4vw;background:rgba(8,8,8,.94);backdrop-filter:blur(8px);border-bottom:0.5px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo-svg{width:34px;height:34px;flex-shrink:0}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--white);line-height:1.2}
+.brand-name span{display:block;font-size:9px;font-weight:300;color:var(--gold);letter-spacing:.22em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:10px;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:9px 20px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold-l)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 4vw 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 38% at 50% 58%,rgba(201,169,110,.07) 0%,transparent 70%);pointer-events:none}
+.line-ornament{width:0.5px;height:52px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);margin:0 auto 2.2rem;opacity:.55;animation:fadeDown 1.4s ease forwards}
+.hero-eyebrow{font-size:10px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;animation:fadeUp 1s ease .2s both}
+.hero-emblem{margin-bottom:1.8rem;animation:fadeUp 1s ease .35s both}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7.5vw,6rem);font-weight:300;line-height:1.05;letter-spacing:.03em;color:var(--white);margin-bottom:.8rem;animation:fadeUp 1s ease .5s both}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:12px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:2.5rem;animation:fadeUp 1s ease .65s both}
+.hero-rule{width:36px;height:0.5px;background:var(--gold);margin:0 auto 2rem;animation:fadeUp 1s ease .72s both}
+.hero-desc{font-size:14px;font-weight:300;line-height:1.85;color:var(--dim);max-width:480px;margin:0 auto 2.8rem;animation:fadeUp 1s ease .82s both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s ease .96s both}
+.btn-gold{display:inline-block;padding:13px 34px;background:var(--gold);color:var(--black);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-gold:hover{background:var(--gold-l)}
+.btn-outline{display:inline-block;padding:12px 33px;border:0.5px solid var(--gold-d);color:var(--gold);font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-l)}
+.scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);animation:fadeUp 1s ease 1.15s both}
+.scroll-bar{width:0.5px;height:28px;background:linear-gradient(to bottom,var(--gold-d),transparent);animation:pulse 2.2s ease-in-out infinite}
+
+/* SECTION */
+section{padding:7rem 4vw}
+.s-label{font-size:9px;font-weight:400;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:300;line-height:1.15;color:var(--white);margin-bottom:.8rem}
+.s-title em{font-style:italic;color:var(--gold)}
+.s-rule{width:28px;height:0.5px;background:var(--gold);margin-bottom:1.2rem}
+.s-desc{font-size:13px;font-weight:300;color:var(--dim);max-width:500px;line-height:1.85}
+
+/* PACKS */
+#packs{padding-top:5rem}
+.controls{display:flex;flex-direction:column;gap:1.4rem;margin-bottom:3rem}
+.ctrl-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.ctrl-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.ctrl{padding:8px 20px;border:0.5px solid var(--border);background:transparent;color:var(--dim);font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.ctrl:hover{border-color:var(--gold-d);color:var(--gold)}
+.ctrl.active{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.05)}
+
+.pack-note{padding:1rem 1.2rem;border-left:1px solid var(--gold-d);background:rgba(201,169,110,.03);font-size:12px;font-weight:300;color:var(--dim);line-height:1.75;margin-bottom:2.5rem}
+.pack-note strong{color:var(--white);font-weight:400}
+
+/* GRID */
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:0.5px solid var(--border)}
+.pc{background:var(--card);border-right:0.5px solid var(--border);padding:1.8rem 1.25rem;position:relative;display:flex;flex-direction:column;transition:background .25s}
+.pc:last-child{border-right:none}
+.pc:hover{background:rgba(17,17,17,.98)}
+.pc.feat{background:rgba(201,169,110,.04);border-right:0.5px solid var(--border)}
+.pc.feat::before{content:'Más solicitado';position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:4px 0;text-align:center}
+
+.pc-num{font-size:8px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);margin-top:16px;margin-bottom:5px}
+.pc.feat .pc-num{margin-top:22px}
+.pc-deity{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;color:var(--white);line-height:1;margin-bottom:3px}
+.pc-sub{font-size:10px;font-weight:300;color:var(--muted);margin-bottom:1.2rem;line-height:1.4}
+.pc-price{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:2px}
+.pc-price sup{font-size:.85rem;font-family:'Jost',sans-serif;font-weight:300;vertical-align:super}
+.pc-iva{font-size:9px;font-weight:300;color:var(--muted);margin-bottom:1rem}
+.pc-rule{width:14px;height:0.5px;background:var(--gold-d);margin-bottom:.9rem}
+.pc-feats{list-style:none;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.pc-feats li{font-size:11px;font-weight:300;color:var(--dim);display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+.pc-feats li::before{content:'';display:block;width:10px;height:.5px;background:var(--border);flex-shrink:0;margin-top:7px}
+.pc-feats li.hl{color:var(--white)}
+.pc-feats li.hl::before{background:var(--gold);width:12px}
+.pc-signal{margin-top:1.2rem;padding:8px;border:0.5px solid var(--border);text-align:center;font-size:10px;font-weight:300;color:var(--muted);line-height:1.5;transition:border-color .2s}
+.pc:hover .pc-signal{border-color:var(--gold-d);color:var(--gold)}
+.pc.feat .pc-signal{border-color:var(--gold-d);color:var(--gold)}
+.pc-signal strong{color:var(--gold);font-weight:400}
+
+/* LEGEND */
+.deity-legend{display:flex;flex-wrap:wrap;gap:1.5rem;padding:1.5rem 0;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);margin:2.5rem 0}
+.dl-item{display:flex;flex-direction:column;gap:2px}
+.dl-deity{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold)}
+.dl-meaning{font-size:9px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+
+/* INFO BAR */
+.info-bar{display:flex;flex-wrap:wrap;gap:0;border:0.5px solid var(--border);margin-top:1.5rem}
+.info-cell{flex:1;min-width:160px;padding:1rem 1.3rem;border-right:0.5px solid var(--border)}
+.info-cell:last-child{border-right:none}
+.ic-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.ic-val{font-size:12px;font-weight:300;color:var(--dim)}
+
+/* RESERVA */
+#reserva{background:rgba(201,169,110,.02);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.step{display:flex;gap:1.4rem;align-items:flex-start}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--gold-d);line-height:1;flex-shrink:0;width:26px}
+.step-t{font-size:12px;font-weight:400;color:var(--white);letter-spacing:.04em;margin-bottom:2px}
+.step-d{font-size:11px;font-weight:300;color:var(--muted);line-height:1.6}
+.res-box{border:0.5px solid var(--gold-d);padding:2rem;background:rgba(201,169,110,.04)}
+.rb-label{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.rb-pct{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:.4rem}
+.rb-desc{font-size:12px;font-weight:300;color:var(--dim);line-height:1.75;margin-bottom:1.4rem}
+.rb-note{font-size:10px;font-weight:300;color:var(--muted);border-top:0.5px solid var(--border);padding-top:.9rem;line-height:1.65}
+
+/* DIFERENCIAS */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:3rem;background:var(--border)}
+.diff-card{background:var(--black);padding:1.5rem}
+.diff-title{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.diff-body{font-size:12px;font-weight:300;color:var(--dim);line-height:1.75}
+.diff-body strong{color:var(--white);font-weight:400}
+
+/* CONTACTO */
+#contacto{text-align:center}
+.contact-inner{max-width:520px;margin:0 auto}
+.contact-items{display:flex;flex-direction:column;gap:1px;margin-top:2.5rem}
+.contact-row{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;border:0.5px solid var(--border);transition:all .2s}
+.contact-row:hover{border-color:var(--gold-d);background:rgba(201,169,110,.02)}
+.cr-platform{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.cr-handle{font-size:13px;font-weight:300;color:var(--white)}
+.cr-action{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+/* FOOTER */
+footer{padding:2rem 4vw;border-top:0.5px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
+.fc{font-size:10px;font-weight:300;color:var(--muted);letter-spacing:.05em}
+.fc span{color:var(--gold)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:.55;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.cards{grid-template-columns:repeat(3,1fr)}.pc:nth-child(3n){border-right:none}.pc:nth-child(n+4){border-top:0.5px solid var(--border)}}
+@media(max-width:800px){.nav-links{display:none}.res-grid{grid-template-columns:1fr;gap:2.5rem}.diff-grid{grid-template-columns:1fr}}
+@media(max-width:600px){section{padding:5rem 5vw}.cards{grid-template-columns:1fr 1fr}.pc:nth-child(2n){border-right:none}.pc:nth-child(n+3){border-top:0.5px solid var(--border)}.pc:nth-child(5){grid-column:1/-1}.info-cell{min-width:120px}.hero-title{font-size:2.6rem}}
+@media(max-width:380px){.cards{grid-template-columns:1fr}.pc{border-right:none!important;border-top:0.5px solid var(--border)!important}.pc:first-child{border-top:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+   <img src="logo_olympus_banner.png" style="width: 7%; height: auto;">
+  <div class="brand-name">Olympus Studio<span>Madrid</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#packs">Paquetes</a></li>
+    <li><a href="#modalidades">Modalidades</a></li>
+    <li><a href="#reserva">Reservas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Consultar disponibilidad</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Fotografía de bodas  · Desde el 2014</p>
+  <div class="hero-emblem">
+    <img src="logo_olympus.png" style="width: 20%; height: auto;">
+  </div>
+  <h1 class="hero-title">
+    Bodas dignas<br>del <em>Olimpo</em>
+  </h1>
+  <p class="hero-sub">Fotografía digital · Bodas y celebraciones · Madrid</p>
+  <div class="hero-rule"></div>
+  <p class="hero-desc">
+    Cada boda es irrepetible. En Olympus Studio capturamos cada mirada, cada emoción y cada detalle con la precisión artística que merece vuestro gran día. Entrega 100% digital en alta resolución.
+  </p>
+  <div class="hero-btns">
+    <a href="#packs" class="btn-gold">Ver paquetes</a>
+    <a href="#contacto" class="btn-outline">Reservar fecha</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-bar"></div>
+    <span>Descubrir</span>
+  </div>
+</section>
+
+<!-- PACKS -->
+<section id="packs">
+  <p class="s-label">Colección bodas 2026</p>
+  <h2 class="s-title">Los <em>Dioses</em> del Amor</h2>
+  <div class="s-rule"></div>
+  <p class="s-desc">Cinco paquetes inspirados en las divinidades del amor y el matrimonio en el Olimpo griego. Dos tipos de sesión, dos modalidades de entrega.</p>
+
+  <div class="deity-legend">
+    <div class="dl-item"><span class="dl-deity">I — Eros</span><span class="dl-meaning">Dios del amor · Inicio</span></div>
+    <div class="dl-item"><span class="dl-deity">II — Afrodita</span><span class="dl-meaning">Diosa de la belleza · Encanto</span></div>
+    <div class="dl-item"><span class="dl-deity">III — Hera</span><span class="dl-meaning">Diosa del matrimonio · Favorito</span></div>
+    <div class="dl-item"><span class="dl-deity">IV — Selene</span><span class="dl-meaning">Diosa de la luna · Eterno</span></div>
+    <div class="dl-item"><span class="dl-deity">V — Zeus</span><span class="dl-meaning">Rey del Olimpo · Máximo</span></div>
+  </div>
+
+  <div class="controls">
+    <div>
+      <p class="ctrl-label">Tipo de sesión</p>
+      <div class="ctrl-row">
+        <button class="ctrl active" id="btn-pre" onclick="setSes('preboda')">Pre-boda en exteriores</button>
+        <button class="ctrl" id="btn-boda" onclick="setSes('boda')">Cobertura de boda</button>
+      </div>
+    </div>
+    <div>
+      <p class="ctrl-label">Modalidad de entrega</p>
+      <div class="ctrl-row">
+        <button class="ctrl active" id="btn-ph" onclick="setMod('photos')">Por fotos seleccionadas</button>
+        <button class="ctrl" id="btn-tm" onclick="setMod('time')">Por tiempo de sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pack-note" id="pack-note"></div>
+  <div class="cards" id="cards"></div>
+
+  <div class="info-bar">
+    <div class="info-cell"><div class="ic-label">Entrega digital</div><div class="ic-val">Google Drive · WeTransfer · Galería privada</div></div>
+    <div class="info-cell"><div class="ic-label">Formato</div><div class="ic-val">JPG alta resolución · Sin marca de agua</div></div>
+    <div class="info-cell"><div class="ic-label">IVA</div><div class="ic-val">No incluido en los precios mostrados</div></div>
+    <div class="info-cell"><div class="ic-label">Extras</div><div class="ic-val">Sin gastos ocultos · 100% digital</div></div>
+  </div>
+</section>
+
+<!-- MODALIDADES -->
+<section id="modalidades" style="padding-top:0">
+  <p class="s-label">¿Qué modalidad elegir?</p>
+  <h2 class="s-title">Dos formas de <em>trabajar</em></h2>
+  <div class="s-rule"></div>
+  <div class="diff-grid">
+    <div class="diff-card">
+      <p class="diff-title">Por fotos seleccionadas</p>
+      <p class="diff-body">
+        Se realiza la cobertura completa del evento o sesión. De todas las imágenes capturadas, <strong>el fotógrafo selecciona las mejores tomas</strong> y las entrega editadas en alta resolución según el número incluido en el paquete.<br><br>
+        Ideal para parejas que <strong>prefieren un resultado curado y profesional</strong> sin gestionar cientos de archivos. El tiempo de entrega es mayor por el trabajo de selección y edición: entre 10 y 15 días hábiles tras el evento.
+      </p>
+    </div>
+    <div class="diff-card">
+      <p class="diff-title">Por tiempo de sesión</p>
+      <p class="diff-body">
+        Se paga por las horas de cobertura. Se entregan <strong>absolutamente todas las fotos capturadas</strong> sin edición (archivos JPG en máxima calidad) más un número de fotos con edición profesional incluida en el paquete.<br><br>
+        Ideal para parejas que <strong>valoran tener el archivo completo</strong> de su boda o que prefieren elegir ellas mismas las fotos favoritas. La entrega de los archivos sin editar puede realizarse en 48-72 horas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section id="reserva">
+  <div class="res-grid">
+    <div>
+      <p class="s-label">Cómo reservar</p>
+      <h2 class="s-title">Tu fecha,<br><em>asegurada</em></h2>
+      <div class="s-rule"></div>
+      <p class="s-desc">Un proceso simple, transparente y sin sorpresas. Así trabajamos en Olympus Studio.</p>
+      <div class="steps">
+        <div class="step"><span class="step-n">1</span><div><p class="step-t">Consulta de disponibilidad</p><p class="step-d">Escríbenos con vuestra fecha y el paquete que os interesa. Confirmamos disponibilidad en menos de 24 horas.</p></div></div>
+        <div class="step"><span class="step-n">2</span><div><p class="step-t">Señal del 30% para confirmar</p><p class="step-d">Una vez acordados todos los detalles, se abona el 30% del total para garantizar vuestra fecha en exclusiva en nuestro calendario.</p></div></div>
+        <div class="step"><span class="step-n">3</span><div><p class="step-t">Sesión y entrega digital</p><p class="step-d">El 70% restante se abona el día del evento antes del inicio. La entrega digital se realiza según los plazos de cada paquete.</p></div></div>
+      </div>
+    </div>
+    <div class="res-box">
+      <p class="rb-label">Garantía de reserva</p>
+      <div class="rb-pct">30%</div>
+      <p class="rb-desc">Para bloquear vuestra fecha en nuestro calendario se requiere un anticipo del <strong style="color:var(--white);font-weight:400">30% del valor total</strong> del paquete seleccionado. Este importe queda deducido del precio final.</p>
+      <p class="rb-note">El 70% restante se abona el día de la sesión o de la boda, antes del inicio de la cobertura. La señal no es reembolsable en caso de cancelación con menos de 72 horas de antelación. Las bodas son el evento de vuestra vida: asegurad vuestra fecha con antelación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-inner">
+    <p class="s-label">¿Listos para empezar?</p>
+    <h2 class="s-title">Hablemos de<br><em>vuestra boda</em></h2>
+    <div class="s-rule" style="margin:0 auto 1.2rem"></div>
+    <p class="s-desc" style="margin:0 auto">Contadnos vuestra fecha, la locación y el paquete que más os encaja. Os respondemos en menos de 24 horas con toda la información.</p>
+    <div class="contact-items">
+      <div class="contact-row"><span class="cr-platform">Instagram</span><span class="cr-handle">@olympus_studio.madrid</span><span class="cr-action">Escribir DM</span></div>
+      <div class="contact-row"><span class="cr-platform">Especialidad</span><span class="cr-handle">Bodas · Pre-bodas · Eventos</span><span class="cr-action">+10 años exp.</span></div>
+      <div class="contact-row"><span class="cr-platform">Cobertura</span><span class="cr-handle">Madrid y Comunidad de Madrid</span><span class="cr-action">España</span></div>
+    </div>
+    <div style="margin-top:2.5rem">
+      <a href="https://www.instagram.com/olympus_studio.madrid" target="_blank" class="btn-gold">Reservar en Instagram</a>
+    </div>
+        <div style="margin-top:2.5rem">
+      <a href="https://wa.me/34675055144" target="_blank" class="btn-gold">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="fc">© 2026 Olympus Studio Madrid. Todos los derechos reservados.</p>
+  <p class="fc">Fotografía de bodas · <span>100% digital · Sin gastos ocultos</span></p>
+</footer>
+
+<script>
+const D={
+  preboda:{
+    photos:{
+      note:"<strong>Pre-boda en exteriores · Por fotos seleccionadas:</strong> Sesión de pareja antes del gran día en locaciones icónicas de Madrid. Se seleccionan y editan las mejores tomas en alta resolución. <strong>Ideal para:</strong> conocer al fotógrafo antes de la boda y crear contenido para invitaciones o redes. Entrega en 5-7 días hábiles.",
+      packs:[
+        {num:"I",deity:"Eros",sub:"Primer encuentro · Express",price:149,feats:["1 hora de sesión","15 fotos editadas en alta res.","1 locación en Madrid","Entrega en 5-7 días hábiles","Envío por enlace digital"]},
+        {num:"II",deity:"Afrodita",sub:"Natural y elegante",price:229,feats:["1h 30 min de sesión","30 fotos editadas en alta res.","Hasta 2 locaciones","Entrega en 5-7 días hábiles","Envío por enlace digital"]},
+        {num:"III",deity:"Hera",sub:"La favorita de las parejas",price:319,feat:true,feats:["2 horas de sesión","50 fotos editadas en alta res.","Hasta 3 locaciones","Entrega en 5 días hábiles","Galería privada online"]},
+        {num:"IV",deity:"Selene",sub:"Recuerdo eterno · Tarde completa",price:419,feats:["3 horas de sesión","75 fotos editadas en alta res.","Locaciones sin límite","Entrega en 5 días hábiles","Galería privada + descarga"]},
+        {num:"V",deity:"Zeus",sub:"Máxima experiencia",price:549,feats:["4 horas de sesión","100 fotos editadas en alta res.","Todas las tomas sin editar incluidas","Locaciones sin límite","Galería privada + descarga directa"]},
+      ]
+    },
+    time:{
+      note:"<strong>Pre-boda en exteriores · Por tiempo:</strong> Se paga por horas de sesión. Se entregan <em>todas</em> las fotos capturadas sin edición más fotos editadas incluidas. <strong>Ideal para:</strong> parejas que quieren libertad total sobre sus archivos o maximizar el número de tomas. Entrega en 48-72 h.",
+      packs:[
+        {num:"I",deity:"Eros",sub:"Primer encuentro · Express",price:120,feats:["1 hora de sesión","Todas las fotos sin editar","8 fotos con edición incluida","1 locación en Madrid","Entrega en 48-72 h"]},
+        {num:"II",deity:"Afrodita",sub:"Relajada y espontánea",price:185,feats:["1h 30 min de sesión","Todas las fotos sin editar","20 fotos con edición incluida","Hasta 2 locaciones","Entrega en 48-72 h"]},
+        {num:"III",deity:"Hera",sub:"La favorita por tiempo",price:265,feat:true,feats:["2 horas de sesión","Todas las fotos sin editar","35 fotos con edición incluida","Hasta 3 locaciones","Galería privada online"]},
+        {num:"IV",deity:"Selene",sub:"Tarde completa de pareja",price:360,feats:["3 horas de sesión","Todas las fotos sin editar","55 fotos con edición incluida","Locaciones sin límite","Galería privada + descarga"]},
+        {num:"V",deity:"Zeus",sub:"Sesión premium extendida",price:480,feats:["4 horas de sesión","Todas las fotos sin editar","80 fotos con edición incluida","Locaciones sin límite","Galería privada + descarga directa"]},
+      ]
+    }
+  },
+  boda:{
+    photos:{
+      note:"<strong>Cobertura de boda · Por fotos seleccionadas:</strong> El fotógrafo cubre el día de vuestra boda. Se seleccionan y entregan las mejores fotografías editadas. <strong>Ideal para:</strong> parejas que quieren un reportaje curado y profesional. Entrega en 10-15 días hábiles tras el evento.",
+      packs:[
+        {num:"I",deity:"Eros",sub:"Ceremonia esencial",price:599,feats:["4 horas de cobertura","80 fotos editadas en alta res.","Ceremonia + sesión de pareja","Entrega en 10-15 días hábiles","Envío por enlace digital"]},
+        {num:"II",deity:"Afrodita",sub:"Ceremonia y celebración",price:849,feats:["6 horas de cobertura","150 fotos editadas en alta res.","Ceremonia + cóctel + pareja","Entrega en 10-15 días hábiles","Galería privada online"]},
+        {num:"III",deity:"Hera",sub:"Boda completa · La favorita",price:1099,feat:true,feats:["8 horas de cobertura","250 fotos editadas en alta res.","Preparativos + ceremonia + banquete","Entrega en 10 días hábiles","Galería privada + descarga"]},
+        {num:"IV",deity:"Selene",sub:"Gran celebración sin lagunas",price:1349,feats:["10 horas de cobertura","350 fotos editadas en alta res.","Toda la jornada cubierta","Entrega en 10 días hábiles","Galería privada + descarga directa"]},
+        {num:"V",deity:"Zeus",sub:"Día completo · Sin límites",price:1699,feats:["Día completo sin límite de horas","500 fotos editadas en alta res.","Todas las tomas sin editar incluidas","Preparativos + fiesta hasta el final","Galería privada + descarga directa"]},
+      ]
+    },
+    time:{
+      note:"<strong>Cobertura de boda · Por tiempo:</strong> Se paga por horas de cobertura. Se entregan <em>todas</em> las fotos del evento sin edición más un número de fotos editadas incluidas. <strong>Ideal para:</strong> parejas que valoran el archivo fotográfico completo de su día.",
+      packs:[
+        {num:"I",deity:"Eros",sub:"Ceremonia esencial",price:499,feats:["4 horas de cobertura","Todas las fotos sin editar","50 fotos con edición incluida","Ceremonia + sesión de pareja","Entrega en 48-72 h"]},
+        {num:"II",deity:"Afrodita",sub:"Ceremonia y cóctel",price:749,feats:["6 horas de cobertura","Todas las fotos sin editar","100 fotos con edición incluida","Ceremonia + cóctel + pareja","Galería privada online"]},
+        {num:"III",deity:"Hera",sub:"Boda completa · La preferida",price:999,feat:true,feats:["8 horas de cobertura","Todas las fotos sin editar","180 fotos con edición incluida","Preparativos + ceremonia + banquete","Galería privada + descarga"]},
+        {num:"IV",deity:"Selene",sub:"Gran celebración total",price:1249,feats:["10 horas de cobertura","Todas las fotos sin editar","280 fotos con edición incluida","Toda la jornada cubierta","Galería privada + descarga directa"]},
+        {num:"V",deity:"Zeus",sub:"Día completo sin restricciones",price:1599,feats:["Día completo sin límite","Todas las fotos sin editar","400 fotos con edición incluida","Preparativos + fiesta completa","Galería privada + descarga directa"]},
+      ]
+    }
+  }
+};
+
+let ses='preboda',mod='photos';
+function setSes(s){ses=s;document.getElementById('btn-pre').className='ctrl'+(s==='preboda'?' active':'');document.getElementById('btn-boda').className='ctrl'+(s==='boda'?' active':'');render()}
+function setMod(m){mod=m;document.getElementById('btn-ph').className='ctrl'+(m==='photos'?' active':'');document.getElementById('btn-tm').className='ctrl'+(m==='time'?' active':'');render()}
+function render(){
+  const d=D[ses][mod];
+  document.getElementById('pack-note').innerHTML=d.note;
+  const g=document.getElementById('cards');
+  g.innerHTML='';
+  d.packs.forEach(p=>{
+    const c=document.createElement('div');
+    c.className='pc'+(p.feat?' feat':'');
+    const fl=p.feats.map((f,i)=>`<li class="${i<2?'hl':''}">${f}</li>`).join('');
+    const sig=Math.round(p.price*.30);
+    c.innerHTML=`
+      ${p.feat?'<div style="position:absolute;top:0;left:0;right:0;background:var(--gold);color:var(--black);font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:4px 0;text-align:center">Más solicitado</div>':''}
+      <div class="pc-num">${p.num} · Paquete</div>
+      <div class="pc-deity">${p.deity}</div>
+      <div class="pc-sub">${p.sub}</div>
+      <div class="pc-price"><sup>€</sup>${p.price.toLocaleString('es-ES')}</div>
+      <div class="pc-iva">por sesión · IVA no incluido</div>
+      <div class="pc-rule"></div>
+      <ul class="pc-feats">${fl}</ul>
+      <div class="pc-signal">Señal de reserva<br><strong>€${sig.toLocaleString('es-ES')}</strong> (30% del total)</div>
+    `;
+    g.appendChild(c);
+  });
+}
+render();
+</script>
+</body>
+</html>
